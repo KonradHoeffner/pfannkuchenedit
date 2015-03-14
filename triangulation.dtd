@@ -1,0 +1,36 @@
+<!ELEMENT triangulation (material+, dreieck+) >
+<!ELEMENT material (ambient,diffus,spiegelnd) >
+
+<!ATTLIST material 
+name ID #REQUIRED
+glanzwert CDATA #REQUIRED
+>
+
+<!ENTITY % vector3d "x CDATA #REQUIRED y CDATA #REQUIRED z CDATA #REQUIRED">
+<!ENTITY % farbe "r CDATA #REQUIRED g CDATA #REQUIRED b CDATA #REQUIRED a CDATA #REQUIRED">
+
+<!ELEMENT ambient EMPTY >
+<!ELEMENT diffus EMPTY >
+<!ELEMENT spiegelnd EMPTY >
+
+<!ATTLIST ambient %farbe;>
+<!ATTLIST diffus %farbe;>
+<!ATTLIST spiegelnd %farbe;>
+
+<!ELEMENT dreieck ( punkt1, punkt2,punkt3,normale1,normale2,normale3) >
+
+<!ATTLIST dreieck material IDREF #REQUIRED>
+
+<!ELEMENT punkt1 EMPTY >
+<!ELEMENT punkt2 EMPTY >
+<!ELEMENT punkt3 EMPTY >
+<!ELEMENT normale1 EMPTY >
+<!ELEMENT normale2 EMPTY >
+<!ELEMENT normale3 EMPTY >
+
+<!ATTLIST punkt1 %vector3d;>
+<!ATTLIST punkt2 %vector3d;>
+<!ATTLIST punkt3 %vector3d;>
+<!ATTLIST normale1 %vector3d;>
+<!ATTLIST normale2 %vector3d;>
+<!ATTLIST normale3 %vector3d;>

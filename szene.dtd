@@ -1,0 +1,51 @@
+<!ENTITY % vector3d "x CDATA #REQUIRED y CDATA #REQUIRED z CDATA #REQUIRED">
+<!ENTITY % farbe3d "r CDATA #REQUIRED g CDATA #REQUIRED b CDATA #REQUIRED">
+
+<!ELEMENT szene (triangulation, fenster,raumteilung,kamera,beleuchtung) >
+
+<!ELEMENT triangulation EMPTY>
+
+<!ATTLIST triangulation src CDATA #REQUIRED>
+
+<!ELEMENT fenster EMPTY>
+
+<!ATTLIST fenster
+breite CDATA #REQUIRED
+hoehe CDATA #REQUIRED
+>
+
+<!ELEMENT raumteilung EMPTY>
+
+<!ATTLIST raumteilung
+unterteilung CDATA #REQUIRED
+>
+
+<!ELEMENT kamera (position,ziel,fovy)>
+
+<!ELEMENT position EMPTY >
+<!ELEMENT ziel EMPTY >
+<!ELEMENT fovy EMPTY >
+
+<!ATTLIST position %vector3d;>
+<!ATTLIST ziel %vector3d;>
+<!ATTLIST fovy winkel CDATA #REQUIRED>
+
+<!ELEMENT beleuchtung (hintergrundfarbe,ambientehelligkeit,abschwaechung,lichtquelle+)>
+
+<!ELEMENT hintergrundfarbe EMPTY >
+<!ELEMENT ambientehelligkeit EMPTY >
+<!ELEMENT abschwaechung EMPTY >
+<!ELEMENT lichtquelle (position,farbe)>
+
+<!ATTLIST hintergrundfarbe %farbe3d;>
+<!ATTLIST ambientehelligkeit %farbe3d;>
+<!ATTLIST abschwaechung 
+konstant CDATA #REQUIRED
+linear CDATA #REQUIRED
+quadratisch CDATA #REQUIRED
+>
+
+<!ELEMENT farbe EMPTY >
+
+<!ATTLIST position %vector3d;>
+<!ATTLIST farbe %farbe3d;>

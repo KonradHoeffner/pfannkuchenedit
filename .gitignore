@@ -1,0 +1,14 @@
+lib
+bin
+*.log
+# Java
+*.class
+# Eclipse
+.project
+.settings
+.classpath
+# Windows image file caches
+Thumbs.db
+ehthumbs.db
+# Folder config file
+Desktop.ini
