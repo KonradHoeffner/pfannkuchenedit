@@ -1,22 +1,12 @@
 package gui;
 
 import java.nio.IntBuffer;
-
 import javax.vecmath.Vector2d;
 import javax.vecmath.Vector3d;
-
-import nurbs.DeBoorPunkt3d;
-import nurbs.NURBSFlaeche;
-import nurbs.NURBSKurve;
+import nurbs.*;
 import szene.*;
-
 import com.jogamp.common.nio.Buffers;
-import com.jogamp.opengl.GL;
-import com.jogamp.opengl.GL2;
-import com.jogamp.opengl.GLAutoDrawable;
-import com.jogamp.opengl.GLDrawable;
-import com.jogamp.opengl.GLEventListener;
-import com.jogamp.opengl.GLPipelineFactory;
+import com.jogamp.opengl.*;
 import com.jogamp.opengl.glu.GLU;
 
 /** Created on 29.05.2006 */
@@ -862,7 +852,6 @@ public class Renderer implements GLEventListener
 		gl.glLoadName(-1);
 	}
 
-	@Override
 	public void dispose(GLAutoDrawable drawable)
 	{
 		System.err.println("TODO: implement Renderer.dispose()");		

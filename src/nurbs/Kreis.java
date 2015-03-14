@@ -57,17 +57,7 @@ public class Kreis extends NURBSKurve implements Serializable{
 		kontrollpolygon[6] = new DeBoorPunkt3d(0.0, this.ursprung.getY(), -this.radius + this.ursprung.getZ(), 1.0);
 		kontrollpolygon[7] = new DeBoorPunkt3d(0.0, this.radius + this.ursprung.getY(), -this.radius + this.ursprung.getZ(), Math.sqrt(0.5));
 		kontrollpolygon[8] = kontrollpolygon[0];
-		
-		/*kontrollpolygon[0] = new DeBoorPunkt3d(this.radius + this.ursprung.getX(), this.ursprung.getY(), 0.0, 1.0);
-		kontrollpolygon[1] = new DeBoorPunkt3d(this.radius + this.ursprung.getX(), this.radius + this.ursprung.getY(), 0.0, Math.sqrt(0.5));
-		kontrollpolygon[2] = new DeBoorPunkt3d(this.ursprung.getX(), this.radius + this.ursprung.getY(), 0.0, 1.0);
-		kontrollpolygon[3] = new DeBoorPunkt3d(-this.radius + this.ursprung.getX(), this.radius + this.ursprung.getY(), 0.0, Math.sqrt(0.5));
-		kontrollpolygon[4] = new DeBoorPunkt3d(-this.radius + this.ursprung.getX(), this.ursprung.getY(), 0.0, 1.0);
-		kontrollpolygon[5] = new DeBoorPunkt3d(-this.radius + this.ursprung.getX(), -this.radius + this.ursprung.getY(), 0.0, Math.sqrt(0.5));
-		kontrollpolygon[6] = new DeBoorPunkt3d(this.ursprung.getX(), -this.radius + this.ursprung.getY(), 0.0, 1.0);
-		kontrollpolygon[7] = new DeBoorPunkt3d(this.radius + this.ursprung.getX(), -this.radius + this.ursprung.getY(), 0.0, Math.sqrt(0.5));
-		kontrollpolygon[8] = kontrollpolygon[0];*/
-		
+				
 		return kontrollpolygon;
 	}
 	private double[] knotenvektor(){

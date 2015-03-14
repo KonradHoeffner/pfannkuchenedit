@@ -5,9 +5,7 @@ import java.awt.event.ContainerAdapter;
 import java.awt.event.ContainerEvent;
 
 import javax.swing.JInternalFrame;
-import javax.vecmath.Point3d;
-import javax.vecmath.Vector2d;
-import javax.vecmath.Vector3d;
+import javax.vecmath.*;
 
 import szene.Kamera;
 import szene.Szene;

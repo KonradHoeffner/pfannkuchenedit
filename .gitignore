@@ -6,6 +6,8 @@ bin
 .project
 .settings
 .classpath
+# Maven
+target
 # Windows image file caches
 Thumbs.db
 ehthumbs.db

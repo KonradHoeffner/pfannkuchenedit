@@ -40,7 +40,7 @@ import com.sun.org.apache.xml.internal.serialize.XMLSerializer;
 public class ImportExport {
 	
 	/**
-	 * Lässt den Benutzer eine Datei angeben und erzeugt diese neu. Falls sie schon existiert, wird nachgefragt ob sie �berschrieben werden darf.
+	 * Lässt den Benutzer eine Datei angeben und erzeugt diese neu. Falls sie schon existiert, wird nachgefragt ob sie überschrieben werden darf.
 	 */
 	public static File chooseFile(JFrame frame,String extension)
 	{
@@ -57,20 +57,7 @@ public class ImportExport {
 		}
 		return null;   
 	}
-	
-/*	public static boolean createFile(JFrame frame, File file)
-	{
-		boolean alreadyExists = true;
-		try {
-			alreadyExists = !file.createNewFile();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		if(alreadyExists)JOptionPane.showMessageDialog(frame,"Datei existiert bereits. Erzeugen nicht möglich.");
-		return true;
-	}
-	
-*/
+
 	/**
 	 * Lässt den Benutzer eine existierende Datei zum öffnen angeben und gibt ein File - Objekt darauf zur�ck.
 	 */
@@ -264,7 +251,7 @@ public class ImportExport {
 		}
 	}
 	/**
-	 * Lässt Benutzer eine Bin�rdatei im pfk Format angeben und l�dt daraus die gesamte Szene (NURBS Flächen+Kurven+Materialien+Lichtquellen)  
+	 * Lässt Benutzer eine Binärdatei im pfk Format angeben und lädt daraus die gesamte Szene (NURBS Flächen+Kurven+Materialien+Lichtquellen)  
 	 */
 	public static void szeneLaden(JFrame frame)
 	{

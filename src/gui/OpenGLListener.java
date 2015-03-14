@@ -1,24 +1,13 @@
 /** Created on 05.06.2006 */
 package gui;
 
-import java.awt.event.InputEvent;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseMotionListener;
-import java.awt.event.MouseWheelEvent;
-import java.awt.event.MouseWheelListener;
+import java.awt.event.*;
 
-import javax.vecmath.Matrix4d;
-import javax.vecmath.Point3d;
-import javax.vecmath.Vector2d;
-import javax.vecmath.Vector3d;
+import javax.vecmath.*;
 
 import nurbs.DeBoorPunkt3d;
 import nurbs.NURBSKurve;
-import szene.Kurve3D;
-import szene.NURBS3D;
-import szene.Szene;
-import szene.VektorMethoden;
+import szene.*;
 
 import com.jogamp.opengl.awt.GLCanvas;
 
