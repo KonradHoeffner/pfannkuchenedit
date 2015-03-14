@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE szene SYSTEM "szene.dtd">
+<szene><triangulation src="neuetriangulationexporttest.xml"/><fenster breite="400" hoehe="400"/><raumteilung unterteilung="2"/><kamera><position x="-1.0677966101694925" y="3.490992444984848" z="5.506475905981304"/><ziel x="-1.8084295343649712" y="-0.0243461903875941" z="-9.596300565590477"/><fovy winkel="45.0"/></kamera><beleuchtung><!-- Lichteigenschaften !--><hintergrundfarbe b="0.5" g="0.2" r="0.2"/><ambientehelligkeit b="1" g="1" r="1"/><abschwaechung konstant="1" linear="0" quadratisch="1"/><!-- Lichtquellen !--><lichtquelle><position x="-1.5762711864406795" y="3.203389830508472" z="0.42372881355932296"/><farbe b="1.0" g="1.0" r="1.0"/></lichtquelle></beleuchtung></szene>
