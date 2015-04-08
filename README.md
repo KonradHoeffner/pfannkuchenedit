@@ -1,3 +1,6 @@
+# PfannkuchenEdit
+![PfannkuchenEdit GUI](http://konradhoeffner.de/img/editor_tisch_mit_pokal.gif)
+
 PfannkuchenEdit is a NURBS editor developed in Java for a computer graphic curse in 2006 as part of the computer sciences diploma curriculum of the University of Leipzig.
 
 The NURBS curves library was created by Marcus Daum.
