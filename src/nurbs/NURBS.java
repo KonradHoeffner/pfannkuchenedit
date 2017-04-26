@@ -1,4 +1,4 @@
-﻿package nurbs;
+package nurbs;
 public class NURBS {
  
 	public NURBSFlaeche erzeugeVerschiebeSweepFlaeche(NURBSKurve nurbsKurve, int tiefe) {

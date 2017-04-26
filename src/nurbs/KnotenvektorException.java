@@ -1,4 +1,4 @@
-﻿package nurbs;
+package nurbs;
 
 public class KnotenvektorException extends Exception{
 	public KnotenvektorException(boolean fehler){

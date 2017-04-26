@@ -1,4 +1,4 @@
-﻿/** Created on 24.05.2006 */
+/** Created on 24.05.2006 */
 package szene;
 
 public class Farbe {

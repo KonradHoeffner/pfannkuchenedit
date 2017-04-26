@@ -1,4 +1,4 @@
-﻿package szene;
+package szene;
 
 import java.awt.Color;
 import java.io.Serializable;

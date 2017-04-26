@@ -1,4 +1,4 @@
-﻿package nurbs;
+package nurbs;
 
 import java.io.Serializable;//zum Speichern und Laden da
 import javax.vecmath.Vector3d;//nur für die letzten 2 Methoden benötigt, damit in der GUI mit Vector3d gearbeitet werden kann

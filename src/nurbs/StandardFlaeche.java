@@ -1,4 +1,4 @@
-﻿package nurbs;
+package nurbs;
 import java.io.Serializable;//zum Speichern und Laden da
 /**
  * erstellt eine quadratische Standardfläche mit anzahl*anzahl vielen Kontrollpunkten im Intervall

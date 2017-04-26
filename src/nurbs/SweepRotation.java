@@ -1,4 +1,4 @@
-﻿package nurbs;
+package nurbs;
 import java.io.Serializable;//zum Speichern und Laden da
 /**
  * stellt das Sweepen als Rotation um die x-Achse zur Verfügung

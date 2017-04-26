@@ -1,4 +1,4 @@
-﻿package nurbs;
+package nurbs;
 
 public class NURBSObjekt_alternative{
 	protected DeBoorPunkt3d auswerten(double t, DeBoorPunkt3d[] kontrollpolygon, int[] knotenvektor, int grad){

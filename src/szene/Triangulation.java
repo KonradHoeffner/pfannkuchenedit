@@ -1,4 +1,4 @@
-﻿package szene;
+package szene;
 
 public class Triangulation {
  

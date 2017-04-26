@@ -1,4 +1,4 @@
-﻿package nurbs;
+package nurbs;
 import java.applet.*;
 import java.awt.Graphics;
 import java.util.Date;

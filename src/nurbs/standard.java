@@ -1,4 +1,4 @@
-﻿package nurbs;
+package nurbs;
 public class standard{
 	public static void main(String[] args){
 		StandardFlaeche test = new StandardFlaeche(20);

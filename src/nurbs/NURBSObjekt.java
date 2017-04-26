@@ -1,4 +1,4 @@
-﻿package nurbs;
+package nurbs;
 import java.io.Serializable;
 /**
  * Oberklasse für NURBSFlaeche und NURBSKurve, die den DeBoor-Algorithmus zur Verfügung stellt

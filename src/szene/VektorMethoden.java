@@ -1,4 +1,4 @@
-﻿/** Created on 07.06.2006 */
+/** Created on 07.06.2006 */
 package szene;
 
 import javax.vecmath.Matrix4d;

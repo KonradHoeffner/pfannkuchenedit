@@ -1,4 +1,4 @@
-﻿package nurbs;
+package nurbs;
 import java.io.Serializable;//zum Speichern und Laden da
 
 public class HuegelLandschaft extends StandardFlaeche implements Serializable{

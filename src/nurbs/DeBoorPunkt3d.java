@@ -1,4 +1,4 @@
-﻿package nurbs;
+package nurbs;
 import java.io.Serializable;//zum Speichern und Laden da
 import javax.vecmath.Tuple3d;//nur für den Konstruktor mit Tuple3d da
 

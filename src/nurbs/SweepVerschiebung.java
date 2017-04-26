@@ -1,4 +1,4 @@
-﻿package nurbs;
+package nurbs;
 import java.io.Serializable;//zum Speichern und Laden da
 /**
  * stellt das Sweepen als Verschiebung entlang der z-Achse um eine Einheit zur Verfügung
