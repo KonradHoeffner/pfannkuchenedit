@@ -3,6 +3,9 @@
   <groupId>de.konradhoeffner.pfannkuchenedit</groupId>
   <artifactId>pfannkuchenedit</artifactId>
   <version>0.0.1-SNAPSHOT</version>
+  <properties>
+   <exec.mainClass>gui.MainWindow</exec.mainClass>
+  </properties>
   <dependencies>
   <dependency>
 	<groupId>java3d</groupId>
@@ -36,6 +39,7 @@
         <artifactId>maven-compiler-plugin</artifactId>
         <version>3.2</version>
         <configuration>
+         <encoding>UTF-8</encoding>
          <source>1.5</source>
          <target>1.5</target>
         </configuration>
