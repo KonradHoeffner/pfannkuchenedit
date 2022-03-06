@@ -33,7 +33,7 @@ import szene.Polygon3D;
 import szene.Szene;
 import szene.VektorMethoden;
 
-import com.sun.org.apache.xerces.internal.parsers.DOMParser;
+import org.apache.xerces.parsers.DOMParser;
 import org.apache.xml.serialize.OutputFormat;
 import org.apache.xml.serialize.XMLSerializer;
 
