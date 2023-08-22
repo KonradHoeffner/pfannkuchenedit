@@ -9,7 +9,7 @@ import javax.vecmath.Point3d;
 import nurbs.DeBoorPunkt3d;
 import nurbs.NURBSKurve;
 
-/** Klasse, die eine NURBS Kurve enth�lt sowie Methoden und Angaben zur Darstellung.  
+/** Klasse, die eine NURBS Kurve enthält sowie Methoden und Angaben zur Darstellung.  
  * Triangulation ist nur für Auswahl da. 
  * Zum Anzeigen gibt es nur das Gitternetz.
  *  */
@@ -19,7 +19,7 @@ public class Kurve3D extends Objekt3D implements Serializable{
 	public NURBSKurve nurbsKurve = null;
 	
 	/**
-	 * �bernimmt die angegebene NURBSKurve und setzt Standardwerte für die Darstellung
+	 * übernimmt die angegebene NURBSKurve und setzt Standardwerte für die Darstellung
 	 */
 	public Kurve3D(NURBSKurve nurbsKurve) {
 		this.nurbsKurve = nurbsKurve;

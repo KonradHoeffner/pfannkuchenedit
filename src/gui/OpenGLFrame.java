@@ -94,16 +94,16 @@ public class OpenGLFrame extends JInternalFrame{
 	}	
 	
 ////	/** NOCH NICHT GETESTET 
-////	 * Gibt eine Matrix zur�ck, mit der die Bildschirmachsen der orthogonalen Ebenenfenster 
-////	 * in Szenenachsen umgewandelt werden k�nnen. Geht allerdings auch direkt mit bildschirmToSzenenAchsen(Vector3d).
+////	 * Gibt eine Matrix zurück, mit der die Bildschirmachsen der orthogonalen Ebenenfenster 
+////	 * in Szenenachsen umgewandelt werden können. Geht allerdings auch direkt mit bildschirmToSzenenAchsen(Vector3d).
 ////	 * Dabei muss die Matrix von LINKS auf den Punkt multipliziert werden. Neuer Punkt = Matrix * Punkt.
 ////	 * Beispiel: Verschiebung mit der Maus in der YZ - Ebene. Mausvektor (deltaX,deltaY,0).
 ////	 * Multiplikation mit der Verschiebungsmatrix ergibt als neuen Vektor (0,deltaY,-deltaX).
-////	 * Eine Translation eines Objektes in Richtung der positiven x und y Achse auf dem Bildschirm w�rde also im YZ - Fenster
+////	 * Eine Translation eines Objektes in Richtung der positiven x und y Achse auf dem Bildschirm würde also im YZ - Fenster
 ////	 * eine Translation des Objektes in Richtung der positiven y und der negativen Z - Achse bewirken.
-////	 * Hier findet allerdings noch keine Umrechnung von Pixeln in Szeneneinheiten statt (L�nge des Vektors bleibt gleich).
-////	 * Im Perspektivfenster und in der XY Ebene wird die Einheitsmatrix zur�ckgegeben.
-////	 * Im Perspektivfenster m�ssen Achsen separat mit kamera.getSichtvektor und kamera.oben erfolgen.
+////	 * Hier findet allerdings noch keine Umrechnung von Pixeln in Szeneneinheiten statt (Länge des Vektors bleibt gleich).
+////	 * Im Perspektivfenster und in der XY Ebene wird die Einheitsmatrix zurückgegeben.
+////	 * Im Perspektivfenster müssen Achsen separat mit kamera.getSichtvektor und kamera.oben erfolgen.
 ////	 * @return  Die Umwandlungsmatrix. Von LINKS auf den Punkt aufmultiplizieren (MATRIX * PUNKT).
 ////	 */
 ////
@@ -123,12 +123,12 @@ public class OpenGLFrame extends JInternalFrame{
 	/** Wandelt Bildschirmachsen der orthogonalen Ebenenfenster in Szenenachsen um.
 	 * Beispiel: Verschiebung mit der Maus in der YZ - Ebene. Mausvektor (deltaX,deltaY,0).
 	 * bildschirmToSzenenAchsen(Mausvektor) ergibt als neuen Vektor (0,y,-x).
-	 * Eine Translation eines Objektes in Richtung der positiven x und y Achse auf dem Bildschirm w�rde also im YZ - Fenster
+	 * Eine Translation eines Objektes in Richtung der positiven x und y Achse auf dem Bildschirm würde also im YZ - Fenster
 	 * eine Translation des Objektes in Richtung der positiven y und der negativen Z - Achse bewirken.
-	 * Hier findet allerdings noch keine Umrechnung von Pixeln in Szeneneinheiten statt (L�nge des Vektors bleibt gleich).
+	 * Hier findet allerdings noch keine Umrechnung von Pixeln in Szeneneinheiten statt (Länge des Vektors bleibt gleich).
 	 * Diese Funktion Lässt sich nicht im Perspektivfenster anwenden.
 	 * Im Perspektivfenster muss dies mit kamera.getSichtvektor und kamera.oben erfolgen.
-	 * @return Die im Fenster ver�nderten Achsen inkl. Richtung.
+	 * @return Die im Fenster veränderten Achsen inkl. Richtung.
 	 */
 	public Vector3d bildschirmToSzenenAchsen(Vector2d bildschirmAchsen)
 	{

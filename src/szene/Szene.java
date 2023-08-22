@@ -9,7 +9,7 @@ import java.util.Vector;
 import nurbs.DeBoorPunkt3d;
 
 /** Datenhaltungsklasse für alle Elemente der Szene (Materialien, Kamera, Lichtquellen, Objekte, NURBS...)
- * Ziel ist, dass alle Klassen auf das zugreifen k�nnen was sie gerade brauchen von der Szene.  
+ * Ziel ist, dass alle Klassen auf das zugreifen können was sie gerade brauchen von der Szene.  
  * @author konrad */
 public class Szene implements Serializable{
 

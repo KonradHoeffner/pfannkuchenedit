@@ -110,8 +110,8 @@ public class MaterialFrame extends JInternalFrame implements ActionListener{
 		buttonPanel1.add(zuweisenButton);
 		zuweisenButton.addActionListener(this);
 		zuweisenButton.setActionCommand("materialzuweisen");
-		// Material l�schen
-		JButton loeschenButton = new JButton("L�schen");
+		// Material löschen
+		JButton loeschenButton = new JButton("Löschen");
 		buttonPanel2.add(loeschenButton);
 		loeschenButton.addActionListener(this);
 		loeschenButton.setActionCommand("materialloeschen");
@@ -155,7 +155,7 @@ public class MaterialFrame extends JInternalFrame implements ActionListener{
 			}
 		}
 		
-		//konstante Fenstergr��e (im Gegensatz zu den OpenGLFrames
+		//konstante Fenstergröße (im Gegensatz zu den OpenGLFrames
 		setSize(300,250);
 		setVisible(true);
 		setEditable(false);
@@ -173,7 +173,7 @@ public class MaterialFrame extends JInternalFrame implements ActionListener{
 		if(e.getActionCommand()=="materialzuweisen")
 		{
 			System.out.println("Material " +comboBox.getSelectedItem() + " zugewiesen");
-			if(Szene.ausgewaehlteNURBSFlaeche==null) JOptionPane.showInternalMessageDialog(this,"Kein Objekt ausgew�hlt.");
+			if(Szene.ausgewaehlteNURBSFlaeche==null) JOptionPane.showInternalMessageDialog(this,"Kein Objekt ausgewählt.");
 			else Szene.ausgewaehlteNURBSFlaeche.material=Szene.materialien.get(comboBox.getSelectedItem()); 
 			return;
 		}
@@ -187,7 +187,7 @@ public class MaterialFrame extends JInternalFrame implements ActionListener{
 				if(neuesMaterial!=null)
 				{
 					setSelectedMaterial(neuesMaterial);
-					System.out.println("Material "+materialName+" gel�scht");
+					System.out.println("Material "+materialName+" gelöscht");
 				}
 				else setEditable(false);
 			}
@@ -197,7 +197,7 @@ public class MaterialFrame extends JInternalFrame implements ActionListener{
 		{
 			String alterName = (String)comboBox.getSelectedItem();
 			if(alterName==null) return;
-			// gew�nschten neuen Namen vom Benutzer einfordern
+			// gewünschten neuen Namen vom Benutzer einfordern
 			String neuerName = (String)JOptionPane.showInputDialog(
 					this,
 					"Neuer Name für " + alterName + ":",
@@ -232,7 +232,7 @@ public class MaterialFrame extends JInternalFrame implements ActionListener{
 				= new Color(Integer.parseInt(farbTextFelder[2][0].getText()),Integer.parseInt(farbTextFelder[2][1].getText()),Integer.parseInt(farbTextFelder[2][2].getText()),Integer.parseInt(farbTextFelder[2][3].getText()));
 
 			}
-			catch(Exception ex) // falls Bl�dsinn eingegeben wird, alten Wert anzeigen
+			catch(Exception ex) // falls Blödsinn eingegeben wird, alten Wert anzeigen
 			{
 				setSelectedMaterial((String)comboBox.getSelectedItem());
 			}

@@ -32,7 +32,7 @@ public class Renderer implements GLEventListener
 	private final int PICKING_KURVE_KONTROLLPUNKTE_OFFSET = 4000;
 	private final int PICKING_LICHTQUELLEN_OFFSET = 5000;
 
-	// Gr��e für den Picking - Buffer
+	// Größe für den Picking - Buffer
 	private final int BUFFSIZE = 512;
 
 	private boolean picking = false;
@@ -782,7 +782,7 @@ public class Renderer implements GLEventListener
 	}
 
 	/**
-	 * Zeichnet einen W�rfel der von -1/-1/-1 bis +1/+1/+1
+	 * Zeichnet einen Würfel der von -1/-1/-1 bis +1/+1/+1
 	 */
 	private void showWuerfel(Vector3d position, Vector3d skalierung)
 	{

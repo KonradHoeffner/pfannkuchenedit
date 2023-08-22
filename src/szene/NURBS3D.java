@@ -10,7 +10,7 @@ import javax.vecmath.Vector3d;
 import nurbs.DeBoorPunkt3d;
 import nurbs.NURBSFlaeche;
 
-/** Enth�lt eine NURBS - Fl�che sowie Angaben zur Darstellung in der Szene und Methoden zum Erzeugen der Triangulierung */
+/** Enthält eine NURBS - Fläche sowie Angaben zur Darstellung in der Szene und Methoden zum Erzeugen der Triangulierung */
 public class NURBS3D extends Objekt3D implements Serializable{
 
 	public NURBSFlaeche nurbsFlaeche = null;
@@ -28,9 +28,9 @@ public class NURBS3D extends Objekt3D implements Serializable{
 
 	
 	/**
-	 * @param position Startposition der NURBSFl�che
+	 * @param position Startposition der NURBS-Fläche
 	 * @param skalierung Skalierung in x,y und z - Richtung
-	 * @param winkel Winkel in Bogenma� für die Drehung um die X, Y und Z Achse (in dieser Reihenfolge)
+	 * @param winkel Winkel in Bogenmaß für die Drehung um die X, Y und Z Achse (in dieser Reihenfolge)
 	 */
 	public NURBS3D(NURBSFlaeche nurbsFlaeche,Vector3d position, Vector3d skalierung) {
 		super(position, skalierung);
@@ -108,10 +108,10 @@ public class NURBS3D extends Objekt3D implements Serializable{
 				punktNormale.add(n1,n2);
 				punktNormale.add(n3);
 				punktNormale.add(n4);
-				//punktNormale.scale(0.25); // wird ja eh wieder normalisiert sp�ter
+				//punktNormale.scale(0.25); // wird ja eh wieder normalisiert später
 				punktNormalen[i][j] = punktNormale;
 			}
-		// Orientierung scheint entgegengesetzt zur Fl�chennormale zu sein -> um�ndern
+		// Orientierung scheint entgegengesetzt zur Flächennormale zu sein -> umändern
 		for(int i=0;i<unterteilung;i++)
 			for(int j=0;j<unterteilung;j++)
 			{
@@ -174,7 +174,7 @@ public class NURBS3D extends Objekt3D implements Serializable{
 
 
 	/**
-	 * Nach �nderungen an den Kontrollpunkten aufrufen um die Triangulierung zu erneuern
+	 * Nach Änderungen an den Kontrollpunkten aufrufen um die Triangulierung zu erneuern
 	 */
 	public synchronized void update()
 	{

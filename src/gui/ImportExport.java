@@ -59,7 +59,7 @@ public class ImportExport {
 	}
 
 	/**
-	 * Lässt den Benutzer eine existierende Datei zum öffnen angeben und gibt ein File - Objekt darauf zur�ck.
+	 * Lässt den Benutzer eine existierende Datei zum öffnen angeben und gibt ein File - Objekt darauf zurück.
 	 */
 	
 	public static File chooseOpenFile(JFrame frame,String extension)
@@ -182,7 +182,7 @@ public class ImportExport {
 			transformation.mul(skalierung);
 			transformation.mul(nurbs.rotationsMatrix);
 			
-			// Koordinaten im Objekt m�ssen zu Weltkoordinaten umgerechnet werden
+			// Koordinaten im Objekt müssen zu Weltkoordinaten umgerechnet werden
 			for(Polygon3D polygonImObjekt:polygone)
 			{
 				Polygon3D polygon = new Polygon3D(polygonImObjekt);
