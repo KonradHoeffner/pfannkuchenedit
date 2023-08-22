@@ -10,4 +10,5 @@ The icons were created by game artist and animator [Simon Trümpler](http://simo
 ### With Maven
 Just use the given pom.xml.
 ### Without Maven
-Download the JOGL and gluegen libraries (tested with version 2.1.4 for both, not the "noawt" ones) along with the native bindings for your operating system to the lib folder and then add all libraries in that folder to the class path.
+Theoretically you should be able to download the JOGL and gluegen libraries (e.g. version 2.5.0) along with the native bindings for your operating system to the lib folder and then add all libraries in that folder to the class path.
+However that is untested and not recommended.
