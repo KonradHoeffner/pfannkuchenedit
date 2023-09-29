@@ -21,6 +21,9 @@ import javax.swing.filechooser.FileFilter;
 import javax.vecmath.Matrix4d;
 import javax.vecmath.Tuple3d;
 
+import org.apache.xerces.parsers.DOMParser;
+import org.apache.xml.serialize.OutputFormat;
+import org.apache.xml.serialize.XMLSerializer;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.xml.sax.SAXException;
@@ -32,10 +35,6 @@ import szene.NURBS3D;
 import szene.Polygon3D;
 import szene.Szene;
 import szene.VektorMethoden;
-
-import org.apache.xerces.parsers.DOMParser;
-import org.apache.xml.serialize.OutputFormat;
-import org.apache.xml.serialize.XMLSerializer;
 
 public class ImportExport {
 	
@@ -253,6 +252,7 @@ public class ImportExport {
 	/**
 	 * Lässt Benutzer eine Binärdatei im pfk Format angeben und lädt daraus die gesamte Szene (NURBS Flächen+Kurven+Materialien+Lichtquellen)  
 	 */
+	@SuppressWarnings("unchecked")
 	public static void szeneLaden(JFrame frame)
 	{
 		try
@@ -278,8 +278,9 @@ public class ImportExport {
 				o.close();
 			}
 			
-		} catch(Exception e) {e.printStackTrace();}
-		
+		} catch(Exception e) {
+			JOptionPane.showMessageDialog(frame,"Fehler beim Szene laden. "+e.getMessage());
+			e.printStackTrace();}
 	}
 	
 	/**
@@ -308,9 +309,10 @@ public class ImportExport {
 			o.writeObject  (Szene.kamera);          
 			o.close();
 			}
-		} catch(Exception e) {/**/}   
-		// wird von szeneSpeichern() aufgerufen		
-	}
-	
-	
+		} catch(Exception e) {
+			JOptionPane.showMessageDialog(frame,"Fehler beim Szene speichern. "+e.getMessage());
+			e.printStackTrace();
+			}
+	}	
+		
 }

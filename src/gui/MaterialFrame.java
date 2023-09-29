@@ -15,7 +15,7 @@ public class MaterialFrame extends JInternalFrame implements ActionListener{
 	JTextField glanzTextFeld = new JTextField(2);
 	Material selectedMaterial=null;
 	
-	JComboBox comboBox = new JComboBox();	
+	JComboBox<String> comboBox = new JComboBox<String>();	
 	
 	
 	private void setEditable(boolean editable)
