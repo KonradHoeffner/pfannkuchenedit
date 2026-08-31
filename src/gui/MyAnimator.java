@@ -39,7 +39,7 @@ public class MyAnimator extends Thread {
 			{				
 				//long davor = (new Date()).getTime();
 				if(frame.isVisible()&&!(frame.isIcon())) frame.canvas.display();
-				yield();
+				Thread.yield();
 //				long danach = (new Date()).getTime();
 //				long zwischendrin = (danach-davor);
 //				System.out.println(zwischendrin);
