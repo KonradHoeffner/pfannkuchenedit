@@ -365,18 +365,12 @@ public class MainWindow implements ActionListener{
 		//rotierer.start();
 	}
 	
-	public static void main(String[] args) {
-		Runnable runnable = new Runnable()
-		{
-			public void run() { new MainWindow();}	
-		};
-		SwingUtilities.invokeLater(runnable);
-//		try {SwingUtilities.invokeLater(runnable);}catch(Exception e){};		
+	void main() {
+		SwingUtilities.invokeLater(() -> new MainWindow());
 	}
 	
 	// Die Funktionen, die vom Menü aufgerufen werden:
-	
-	
+
 	// Dateimenü
 	
 //	public void ascImportieren(String dateiName)
