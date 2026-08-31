@@ -1,11 +1,7 @@
 /** Created on 07.06.2006 */
 package szene;
 
-import javax.vecmath.Matrix4d;
-import javax.vecmath.Tuple3d;
-import javax.vecmath.Vector2d;
-import javax.vecmath.Vector3d;
-import javax.vecmath.Vector4d;
+import javax.vecmath.*;
 
 public class VektorMethoden {
 

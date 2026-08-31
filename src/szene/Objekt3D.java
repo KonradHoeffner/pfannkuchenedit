@@ -3,7 +3,6 @@ package szene;
 import java.io.Serializable;
 import javax.vecmath.*;
 
-
 public abstract class Objekt3D implements Serializable{
  
 	public Vector3d position=new Vector3d(0,0,0);

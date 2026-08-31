@@ -1,7 +1,8 @@
 /** Created on 05.06.2006 */
 package gui;
 
-import java.awt.event.*;
+import module java.desktop;
+import java.awt.event.MouseEvent; // resolve naming conflict
 
 import javax.vecmath.*;
 

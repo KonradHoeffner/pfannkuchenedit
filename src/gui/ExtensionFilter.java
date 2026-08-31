@@ -1,8 +1,6 @@
 /** Created on 02.07.2006 */
 package gui;
-
 import java.io.File;
-
 import javax.swing.filechooser.FileFilter;
 
 public class ExtensionFilter extends FileFilter {

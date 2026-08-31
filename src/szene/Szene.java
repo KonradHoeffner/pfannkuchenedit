@@ -1,11 +1,7 @@
 package szene;
+import module java.base;
 
 import gui.MainWindow;
-
-import java.io.Serializable;
-import java.util.HashMap;
-import java.util.Vector;
-
 import nurbs.DeBoorPunkt3d;
 
 /** Datenhaltungsklasse für alle Elemente der Szene (Materialien, Kamera, Lichtquellen, Objekte, NURBS...)

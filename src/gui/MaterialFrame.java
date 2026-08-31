@@ -1,11 +1,6 @@
 package gui;
-import javax.swing.*;
-
+import module java.desktop;
 import szene.*;
-
-import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 /* Used by InternalFrameDemo.java. */
 public class MaterialFrame extends JInternalFrame implements ActionListener{

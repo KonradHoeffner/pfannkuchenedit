@@ -1,6 +1,5 @@
 package nurbs;
-import java.applet.*;
-import java.awt.Graphics;
+import module java.desktop;
 import java.util.Date;
 /** Created on 15.10.2005 */
 

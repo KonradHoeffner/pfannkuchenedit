@@ -1,8 +1,6 @@
 /** Created on 12.06.2006 */
 package szene;
-
-import java.io.Serializable;
-import java.util.Vector;
+import module java.base;
 
 import javax.vecmath.Point3d;
 

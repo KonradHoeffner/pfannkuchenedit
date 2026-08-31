@@ -1,16 +1,13 @@
 package gui;
 
-import java.awt.BorderLayout;
-import java.awt.event.ContainerAdapter;
-import java.awt.event.ContainerEvent;
+import module java.desktop;
 
-import javax.swing.JInternalFrame;
 import javax.vecmath.*;
+import com.jogamp.opengl.awt.GLCanvas;
 
 import szene.Kamera;
 import szene.Szene;
 
-import com.jogamp.opengl.awt.GLCanvas;
 
 public class OpenGLFrame extends JInternalFrame{
 	

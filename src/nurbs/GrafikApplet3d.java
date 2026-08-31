@@ -1,6 +1,5 @@
 package nurbs;
-import java.applet.*;
-import java.awt.Graphics;
+import module java.desktop;
 
 public class GrafikApplet3d extends Applet{
 	final double konstante = 10.0;

@@ -1,18 +1,10 @@
 package gui;
 
-import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.KeyEvent;
-import java.beans.PropertyVetoException;
-import java.util.Vector;
-import java.util.regex.Pattern;
+import module java.base;
+import module java.desktop;
 
-import javax.swing.*;
 import javax.vecmath.*;
-
 import nurbs.*;
-
 import szene.*;
 
 

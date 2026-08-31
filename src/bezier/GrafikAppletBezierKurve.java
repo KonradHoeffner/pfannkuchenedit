@@ -1,7 +1,6 @@
 package bezier;
-import java.applet.*;
-import java.awt.Graphics;
-import java.util.Date;
+import module java.base;
+import module java.desktop;
 
 public class GrafikAppletBezierKurve extends Applet{
 	public void putPixel(Graphics g,int x,int y){

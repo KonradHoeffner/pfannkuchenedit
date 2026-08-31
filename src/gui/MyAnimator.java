@@ -1,6 +1,5 @@
 package gui;
-import java.util.Iterator;
-import java.util.Vector;
+import module java.base;
 /** Created on 31.05.2006 */
 
 public class MyAnimator extends Thread {

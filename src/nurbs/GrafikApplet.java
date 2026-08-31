@@ -1,7 +1,6 @@
 package nurbs;
-import java.applet.*;
-import java.awt.Graphics;
-import java.util.Date;
+import module java.base;
+import module java.desktop;
 /** Created on 15.10.2005 */
 
 public class GrafikApplet extends Applet{	

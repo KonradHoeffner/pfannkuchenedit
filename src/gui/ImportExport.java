@@ -1,32 +1,18 @@
 /** Created on 02.07.2006 */
 package gui;
-
-import java.awt.Color;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Vector;
-
-import javax.swing.JFileChooser;
-import javax.swing.JFrame;
-import javax.swing.JOptionPane;
+import module java.base;
+import module java.desktop;
+import module java.xml;
 import javax.swing.filechooser.FileFilter;
+import org.w3c.dom.Element; // name collisions
+import org.w3c.dom.Document;
+
 import javax.vecmath.Matrix4d;
 import javax.vecmath.Tuple3d;
 
 import org.apache.xerces.parsers.DOMParser;
 import org.apache.xml.serialize.OutputFormat;
 import org.apache.xml.serialize.XMLSerializer;
-import org.w3c.dom.Document;
-import org.w3c.dom.Element;
-import org.xml.sax.SAXException;
 
 import szene.Kamera;
 import szene.Lichtquelle;
