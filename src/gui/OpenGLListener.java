@@ -58,10 +58,8 @@ public class OpenGLListener extends MouseAdapter implements MouseMotionListener,
 		verschiebungEinheiten.set(verschiebungPixel);
 		switch(typ)
 		{
-		case OpenGLFrame.XY_EBENE:		
-		case OpenGLFrame.XZ_EBENE:
-		case OpenGLFrame.YZ_EBENE: 	  {verschiebungEinheiten.scale(frame.getBreite()/canvas.getWidth());break;}
-		case OpenGLFrame.PERSPEKTIVE: {verschiebungEinheiten.scale(15d/canvas.getWidth());break;}
+		case OpenGLFrame.XY_EBENE, OpenGLFrame.XZ_EBENE, OpenGLFrame.YZ_EBENE -> verschiebungEinheiten.scale(frame.getBreite()/canvas.getWidth());
+		case OpenGLFrame.PERSPEKTIVE -> verschiebungEinheiten.scale(15d/canvas.getWidth());
 		}
 		verschiebungSzene = frame.bildschirmToSzenenAchsen(verschiebungEinheiten);
 	}
@@ -232,49 +230,43 @@ public class OpenGLListener extends MouseAdapter implements MouseMotionListener,
 	{
 		switch(Szene.bearbeitungsModus)
 		{
-		case Szene.KAMERA_MODUS:
+		case Szene.KAMERA_MODUS ->
 		{	
 			switch(Szene.bearbeitungsFunktion)
 			{
-			case Szene.VERSCHIEBEN_FUNKTION: {perspektive_Kamera_Verschieben();break;}
-			case Szene.SKALIEREN_FUNKTION:
+			case Szene.VERSCHIEBEN_FUNKTION -> perspektive_Kamera_Verschieben();
+			case Szene.SKALIEREN_FUNKTION ->
 			{
 				if(lmb)	perspektive_Kamera_Skalieren_LMB();
 				else 	perspektive_Kamera_Skalieren_RMB();
-				break;
 			}
-			case Szene.DREHEN_FUNKTION:
+			case Szene.DREHEN_FUNKTION ->
 			{
 				if(lmb)	perspektive_Kamera_Drehen_LMB();
 				else	perspektive_Kamera_Drehen_RMB();
-				break;
 			}
 			}			
-			break;
 		}
-		case Szene.OBJEKT_MODUS:
+		case Szene.OBJEKT_MODUS ->
 		{
 			if(Szene.ausgewaehlterTyp==Szene.NURBSFLAECHE_AUSGEWAEHLT||Szene.ausgewaehlterTyp==Szene.LICHTQUELLE_AUSGEWAEHLT)
 				switch(Szene.bearbeitungsFunktion)
 				{
-				case Szene.VERSCHIEBEN_FUNKTION:	{perspektive_ObjektoderNURBS_Verschieben();break;}
-				case Szene.SKALIEREN_FUNKTION:		{perspektive_Objekt_Skalieren();break;}
-				case Szene.DREHEN_FUNKTION:			{perspektive_Objekt_Drehen();break;}
+				case Szene.VERSCHIEBEN_FUNKTION -> perspektive_ObjektoderNURBS_Verschieben();
+				case Szene.SKALIEREN_FUNKTION -> perspektive_Objekt_Skalieren();
+				case Szene.DREHEN_FUNKTION -> perspektive_Objekt_Drehen();
 				}
-			break;	
 		}
-		case Szene.NURBS_MODUS:
+		case Szene.NURBS_MODUS ->
 		{
 			switch(Szene.bearbeitungsFunktion)
 			{
-			case Szene.VERSCHIEBEN_FUNKTION:{perspektive_ObjektoderNURBS_Verschieben();break;}
+			case Szene.VERSCHIEBEN_FUNKTION -> {perspektive_ObjektoderNURBS_Verschieben();
 			}
 		}
-		break;
 		}
 	}
-	
-	
+	}
 	
 	private void perspektive_ObjektoderNURBS_Verschieben() {
 		
@@ -301,17 +293,9 @@ public class OpenGLListener extends MouseAdapter implements MouseMotionListener,
 		
 		switch(Szene.ausgewaehlterTyp)
 		{
-		case Szene.NURBSFLAECHE_AUSGEWAEHLT:
-		{
-			Szene.ausgewaehlteNURBSFlaeche.position.add(translation);
-			break;
-		}
-		case Szene.LICHTQUELLE_AUSGEWAEHLT:
-		{
-			Szene.ausgewaehlteLichtquelle.position.add(translation);
-			break;
-		}
-		case Szene.KONTROLLPUNKT_AUSGEWAEHLT:
+		case Szene.NURBSFLAECHE_AUSGEWAEHLT -> Szene.ausgewaehlteNURBSFlaeche.position.add(translation);
+		case Szene.LICHTQUELLE_AUSGEWAEHLT -> Szene.ausgewaehlteLichtquelle.position.add(translation);
+		case Szene.KONTROLLPUNKT_AUSGEWAEHLT ->
 		{
 			// So ein Wust kommt dabei raus wenn nix public ist oder von vector3d erbt:
 			// sonst in einer zeile: Szene.ausgewaehlterKontrollpunkt.add(translation);
@@ -325,9 +309,7 @@ public class OpenGLListener extends MouseAdapter implements MouseMotionListener,
 //			Szene.ausgewaehlterKontrollpunkt.getY()+" "+ 
 //			Szene.ausgewaehlterKontrollpunkt.getZ());
 			Szene.ausgewaehlteNURBSFlaeche.update();
-			break;
 		}
-		
 		}
 	}
 	
@@ -366,7 +348,7 @@ public class OpenGLListener extends MouseAdapter implements MouseMotionListener,
 		// Skalierung nicht unter Mindestwert gehen lassen
 		switch(Szene.ausgewaehlterTyp)
 		{
-		case Szene.NURBSFLAECHE_AUSGEWAEHLT:
+		case Szene.NURBSFLAECHE_AUSGEWAEHLT ->
 		{
 			final double MIN_SKALIERUNG = 0.01;
 			NURBS3D nurbs = Szene.ausgewaehlteNURBSFlaeche;
@@ -377,14 +359,14 @@ public class OpenGLListener extends MouseAdapter implements MouseMotionListener,
 			nurbs.skalierung.z=Math.max(nurbs.skalierung.z,MIN_SKALIERUNG);
 			//System.out.println(skalierung);
 			//System.out.println(nurbs.skalierung);
-			break;
 		}
 		}
 	}
+
 	private void perspektive_Objekt_Drehen() {
 		switch(Szene.ausgewaehlterTyp)
 		{
-		case Szene.NURBSFLAECHE_AUSGEWAEHLT:
+		case Szene.NURBSFLAECHE_AUSGEWAEHLT ->
 		{
 			Vector3d vorne = Szene.kamera.getSichtVektor();
 			
@@ -400,15 +382,12 @@ public class OpenGLListener extends MouseAdapter implements MouseMotionListener,
 			//VektorMethoden.rotierePunkt(Szene.ausgewaehlteNURBSFlaeche.winkel,new Vector3d(0,0,0),vorne,0.1);
 			//System.out.println(Szene.ausgewaehlteNURBSFlaeche.winkel);
 			//getWinkelAenderung()
-			break;
 		}
 		}
 	}
 	
-	
 	private void ebenenfenster_Kamera_Verschieben_LMB()
 	{
-		
 		Point3d pos = frame.getPos();
 		pos.sub(verschiebungSzene);
 		//System.out.println(verschiebungSzene);
@@ -459,24 +438,16 @@ public class OpenGLListener extends MouseAdapter implements MouseMotionListener,
 		 Vector3d translation=null;*/
 		/*switch(typ)
 		 {
-		 case OpenGLFrame.XY_EBENE: {translation = new Vector3d(translation2d.x,translation2d.y,0);break;}
-		 case OpenGLFrame.XZ_EBENE: {translation = new Vector3d(translation2d.x,0,translation2d.y);break;}
-		 case OpenGLFrame.YZ_EBENE: {translation = new Vector3d(0,translation2d.y,translation2d.x);break;}
+		 case OpenGLFrame.XY_EBENE -> translation = new Vector3d(translation2d.x,translation2d.y,0);
+		 case OpenGLFrame.XZ_EBENE -> translation = new Vector3d(translation2d.x,0,translation2d.y);
+		 case OpenGLFrame.YZ_EBENE -> translation = new Vector3d(0,translation2d.y,translation2d.x);
 		 }*/
 		
 		switch(Szene.ausgewaehlterTyp)
 		{
-		case Szene.NURBSFLAECHE_AUSGEWAEHLT:
-		{	
-			Szene.ausgewaehlteNURBSFlaeche.position.add(verschiebungSzene);
-			break;
-		}
-		case Szene.LICHTQUELLE_AUSGEWAEHLT:
-		{
-			Szene.ausgewaehlteLichtquelle.position.add(verschiebungSzene);
-			break;
-		}
-		case Szene.KONTROLLPUNKT_AUSGEWAEHLT:
+		case Szene.NURBSFLAECHE_AUSGEWAEHLT -> Szene.ausgewaehlteNURBSFlaeche.position.add(verschiebungSzene);
+		case Szene.LICHTQUELLE_AUSGEWAEHLT -> Szene.ausgewaehlteLichtquelle.position.add(verschiebungSzene);
+		case Szene.KONTROLLPUNKT_AUSGEWAEHLT ->
 		{
 			// So ein Wust kommt dabei raus wenn nix public ist oder von vector3d erbt:
 			// sonst in einer zeile: Szene.ausgewaehlterKontrollpunkt.add(translation);		
@@ -495,13 +466,9 @@ public class OpenGLListener extends MouseAdapter implements MouseMotionListener,
 					+ translation.z);
 			if(Szene.ausgewaehlteNURBSFlaeche!=null) Szene.ausgewaehlteNURBSFlaeche.update();
 			else Szene.ausgewaehlteNURBSKurve.update();
-			break;
 		}
-		
 		}
 	}
-	
-	
 	
 	private void ebenenfenster_Objekt_Skalieren_LMB() {
 		perspektive_Objekt_Skalieren();
@@ -511,26 +478,24 @@ public class OpenGLListener extends MouseAdapter implements MouseMotionListener,
 		// Skalierung nicht unter Mindestwert gehen lassen
 		switch(Szene.ausgewaehlterTyp)
 		{
-		case Szene.NURBSFLAECHE_AUSGEWAEHLT:
+		case Szene.NURBSFLAECHE_AUSGEWAEHLT ->
 		{
 			NURBS3D nurbs = Szene.ausgewaehlteNURBSFlaeche;
 			//double skalierung = (verschiebungSzene.x+verschiebungSzene.y)/50;
 			switch(typ)
 			{
-			case OpenGLFrame.XY_EBENE:
+			case OpenGLFrame.XY_EBENE ->
 			{
 				nurbs.skalierung.x*=(1+verschiebungSzene.x/20);
 				nurbs.skalierung.y/=(1+verschiebungSzene.y/20);
-				break;
 			}
-			//case OpenGLFrame.XZ_EBENE:	{nurbs.skalierung.z*=(1+skalierung);break;}
-			//case OpenGLFrame.YZ_EBENE:	{nurbs.skalierung.y*=(1+skalierung);break;}
+			//case OpenGLFrame.XZ_EBENE -> nurbs.skalierung.z*=(1+skalierung);
+			//case OpenGLFrame.YZ_EBENE -> nurbs.skalierung.y*=(1+skalierung);
 			}
 			final double MIN_SKALIERUNG = 0.01;
 			nurbs.skalierung.x=Math.max(nurbs.skalierung.x,MIN_SKALIERUNG);
 			nurbs.skalierung.y=Math.max(nurbs.skalierung.y,MIN_SKALIERUNG);
 			nurbs.skalierung.z=Math.max(nurbs.skalierung.z,MIN_SKALIERUNG);
-			break;
 		}
 		}
 		
@@ -542,76 +507,61 @@ public class OpenGLListener extends MouseAdapter implements MouseMotionListener,
 		
 		switch(typ)
 		{
-		case OpenGLFrame.XY_EBENE:
-		{rotation.rotZ(-getWinkelAenderung());break;}
-		case OpenGLFrame.XZ_EBENE:
-		{rotation.rotY(-getWinkelAenderung());break;}
-		case OpenGLFrame.YZ_EBENE:
-		{rotation.rotX(-getWinkelAenderung());break;}
+		case OpenGLFrame.XY_EBENE -> rotation.rotZ(-getWinkelAenderung());
+		case OpenGLFrame.XZ_EBENE -> rotation.rotY(-getWinkelAenderung());
+		case OpenGLFrame.YZ_EBENE -> rotation.rotX(-getWinkelAenderung());
 		}
-		
 		rotation.mul(Szene.ausgewaehlteNURBSFlaeche.rotationsMatrix);
 		Szene.ausgewaehlteNURBSFlaeche.rotationsMatrix=rotation;
 //		Szene.ausgewaehlteNURBSFlaeche.rotationsMatrix.mul(rotation);
-		
 	}
 	
 	private void ebenenfenster_mouseDragged()
 	{
 		switch(Szene.bearbeitungsModus)
 		{
-		case Szene.KAMERA_MODUS:
+		case Szene.KAMERA_MODUS ->
 		{
 			//System.out.println("Kameramodus erwartet"+Szene.bearbeitungsModus);
 			switch(Szene.bearbeitungsFunktion)
 			{
-			case Szene.VERSCHIEBEN_FUNKTION:
+			case Szene.VERSCHIEBEN_FUNKTION ->
 			{
 				if(lmb) ebenenfenster_Kamera_Verschieben_LMB();
 				else 	ebenenfenster_Kamera_Verschieben_RMB();
-				break;
 			}
-			case Szene.SKALIEREN_FUNKTION:	{ebenenfenster_Kamera_Skalieren();break;}
-			//case Szene.DREHEN_FUNKTION:	{ebenenfenster_Kamera_Drehen();break;}
+			case Szene.SKALIEREN_FUNKTION -> ebenenfenster_Kamera_Skalieren();
+			//case Szene.DREHEN_FUNKTION -> ebenenfenster_Kamera_Drehen();
 			}
-			break;
 		}
-		case Szene.OBJEKT_MODUS:
+		case Szene.OBJEKT_MODUS ->
 		{
 			if(Szene.ausgewaehlterTyp==Szene.NURBSFLAECHE_AUSGEWAEHLT)
 				switch(Szene.bearbeitungsFunktion)
 				{
-				case Szene.VERSCHIEBEN_FUNKTION:	{ebenenfenster_ObjektoderNURBS_Verschieben();break;}
-				case Szene.SKALIEREN_FUNKTION:
+				case Szene.VERSCHIEBEN_FUNKTION -> ebenenfenster_ObjektoderNURBS_Verschieben();
+				case Szene.SKALIEREN_FUNKTION ->
 				{
 					if(lmb)ebenenfenster_Objekt_Skalieren_LMB();
 					else ebenenfenster_Objekt_Skalieren_RMB();
-					break;
 				}
-				case Szene.DREHEN_FUNKTION:			{ebenenfenster_Objekt_Drehen();break;}
+				case Szene.DREHEN_FUNKTION -> ebenenfenster_Objekt_Drehen();
 				}
 			if(Szene.ausgewaehlterTyp==Szene.LICHTQUELLE_AUSGEWAEHLT)
 				switch(Szene.bearbeitungsFunktion)
 				{
-				case Szene.VERSCHIEBEN_FUNKTION:	{ebenenfenster_ObjektoderNURBS_Verschieben();break;}
+				case Szene.VERSCHIEBEN_FUNKTION -> ebenenfenster_ObjektoderNURBS_Verschieben();
 				}
-			break;
 		}
-		case Szene.NURBS_MODUS:
+		case Szene.NURBS_MODUS ->
 		{
 			if(Szene.ausgewaehlterTyp==Szene.KONTROLLPUNKT_AUSGEWAEHLT)
 				switch(Szene.bearbeitungsFunktion)
 				{
-				case Szene.VERSCHIEBEN_FUNKTION:
-				{
-					ebenenfenster_ObjektoderNURBS_Verschieben();
-					break;
-				}
-				}
+				case Szene.VERSCHIEBEN_FUNKTION -> ebenenfenster_ObjektoderNURBS_Verschieben();
 		}
-		break;
-		
 		}
+	}
 	}
 	
 	
@@ -621,34 +571,17 @@ public class OpenGLListener extends MouseAdapter implements MouseMotionListener,
 		switch(typ)
 		{
 		// Die 3 orthogonalen Ebenenfenster
-		case OpenGLFrame.XY_EBENE:
-		case OpenGLFrame.XZ_EBENE:
-		case OpenGLFrame.YZ_EBENE:
-		{
-			ebenenfenster_mouseDragged();
-			break;
-		}
-		
+		case OpenGLFrame.XY_EBENE, OpenGLFrame.XZ_EBENE, OpenGLFrame.YZ_EBENE -> ebenenfenster_mouseDragged();
 		// Das Perspektivenfenster
-		case OpenGLFrame.PERSPEKTIVE:
-		{
-			perspektive_mouseDragged();
-			break;
+		case OpenGLFrame.PERSPEKTIVE -> perspektive_mouseDragged();
 		}
-		}
-		
-		
 		//System.out.println("it drags me by "+verschiebung.x+" "+verschiebung.y);
 		renderer.setViewUpdated();
-		
-		
 	}
 	
 	public void mouseMoved(MouseEvent e) {
 		update(e);
 	}
-	
-	
 	
 	public void mouseWheelMoved(MouseWheelEvent e) {
 		if(Szene.ausgewaehlterTyp==Szene.KONTROLLPUNKT_AUSGEWAEHLT&&Szene.bearbeitungsModus==Szene.NURBS_MODUS)
@@ -661,11 +594,11 @@ public class OpenGLListener extends MouseAdapter implements MouseMotionListener,
 			switch(typ)
 			{
 			// Ebenenfenster : Sichtaussschnitt ändern
-			case 0:{Szene.kamera.breiteXY*=(1+(double)(e.getScrollAmount())*e.getWheelRotation()/15);break;}
-			case 1:{Szene.kamera.breiteXZ*=(1+(double)(e.getScrollAmount())*e.getWheelRotation()/15);break;}
-			case 2:{Szene.kamera.breiteYZ*=(1+(double)(e.getScrollAmount())*e.getWheelRotation()/15);break;}
+			case 0 -> Szene.kamera.breiteXY*=(1+(double)(e.getScrollAmount())*e.getWheelRotation()/15);
+			case 1 -> Szene.kamera.breiteXZ*=(1+(double)(e.getScrollAmount())*e.getWheelRotation()/15);
+			case 2 -> Szene.kamera.breiteYZ*=(1+(double)(e.getScrollAmount())*e.getWheelRotation()/15);
 //			Perspektivfenster: Nach vorne/hinten bewegen
-			case 3:{Szene.kamera.kameraVor((double)(e.getScrollAmount())*e.getWheelRotation()/2);break;}
+			case 3 -> Szene.kamera.kameraVor((double)(e.getScrollAmount())*e.getWheelRotation()/2);
 			}
 		
 		renderer.setViewUpdated();

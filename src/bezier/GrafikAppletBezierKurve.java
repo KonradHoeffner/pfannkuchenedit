@@ -29,47 +29,20 @@ public class GrafikAppletBezierKurve extends Applet{
 		
 		for (int i = 0; i < polygon.length; i++){
 			switch (ebene){
-			case 0: {
-				this.putKontrolle(g, (int) ((polygon[i].getX() + verschiebung.getX()) * scale), (int) ((polygon[i].getY() + verschiebung.getY()) * scale), i);
-				break;
-			}
-			case 1: {
-				this.putKontrolle(g, (int) ((polygon[i].getX() + verschiebung.getX()) * scale), (int) ((polygon[i].getZ() + verschiebung.getZ()) * scale), i);
-				break;
-			}
-			case 2: {
-				this.putKontrolle(g, (int) ((polygon[i].getY() + verschiebung.getY()) * scale), (int) ((polygon[i].getZ() + verschiebung.getZ()) * scale), i);
-				break;
-			}
-			default: {
-				this.putKontrolle(g, (int) ((polygon[i].getX() + verschiebung.getX()) * scale), (int) ((polygon[i].getY() + verschiebung.getY()) * scale), i);
-				break;
-			}
+			case 0 -> this.putKontrolle(g, (int) ((polygon[i].getX() + verschiebung.getX()) * scale), (int) ((polygon[i].getY() + verschiebung.getY()) * scale), i);
+			case 1 -> this.putKontrolle(g, (int) ((polygon[i].getX() + verschiebung.getX()) * scale), (int) ((polygon[i].getZ() + verschiebung.getZ()) * scale), i);
+			case 2 -> this.putKontrolle(g, (int) ((polygon[i].getY() + verschiebung.getY()) * scale), (int) ((polygon[i].getZ() + verschiebung.getZ()) * scale), i);
+			default -> this.putKontrolle(g, (int) ((polygon[i].getX() + verschiebung.getX()) * scale), (int) ((polygon[i].getY() + verschiebung.getY()) * scale), i);
 			}
 		}
 		Punkt3d punkt;
 		for (double t = 0d; t < 1d; t += 0.01){
+				punkt = test.auswerten(t);
 			switch (ebene){
-			case 0: {
-				punkt = test.auswerten(t);
-				this.putPixel(g, (int) ((punkt.getX() + verschiebung.getX()) * scale), (int) ((punkt.getY() + verschiebung.getY()) * scale));
-				break;
-			}
-			case 1: {
-				punkt = test.auswerten(t);
-				this.putPixel(g, (int) ((punkt.getX() + verschiebung.getX()) * scale), (int) ((punkt.getZ() + verschiebung.getZ()) * scale));
-				break;
-			}
-			case 2: {
-				punkt = test.auswerten(t);
-				this.putPixel(g, (int) ((punkt.getY() + verschiebung.getY()) * scale), (int) ((punkt.getZ() + verschiebung.getZ()) * scale));
-				break;
-			}
-			default: {
-				punkt = test.auswerten(t);
-				this.putPixel(g, (int) ((punkt.getX() + verschiebung.getX()) * scale), (int) ((punkt.getY() + verschiebung.getY()) * scale));
-				break;
-			}
+			case 0 -> this.putPixel(g, (int) ((punkt.getX() + verschiebung.getX()) * scale), (int) ((punkt.getY() + verschiebung.getY()) * scale));
+			case 1 -> this.putPixel(g, (int) ((punkt.getX() + verschiebung.getX()) * scale), (int) ((punkt.getZ() + verschiebung.getZ()) * scale));
+			case 2 -> this.putPixel(g, (int) ((punkt.getY() + verschiebung.getY()) * scale), (int) ((punkt.getZ() + verschiebung.getZ()) * scale));
+			default -> this.putPixel(g, (int) ((punkt.getX() + verschiebung.getX()) * scale), (int) ((punkt.getY() + verschiebung.getY()) * scale));
 			}
 		}
 		System.out.println("fertig");

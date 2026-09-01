@@ -24,55 +24,55 @@ public class OpenGLFrame extends JInternalFrame{
 	
 	public double getBreite()
 	{
-		switch(typ)
+		return switch(typ)
 		{
-		case XZ_EBENE: return kamera.breiteXZ;
-		case YZ_EBENE: return kamera.breiteYZ;
-		default: return kamera.breiteXY;
-		}
+		case XZ_EBENE -> kamera.breiteXZ;
+		case YZ_EBENE -> kamera.breiteYZ;
+		default -> kamera.breiteXY;
+		};
 	}
 
 	public void setBreite(double breite)
 	{
 		switch(typ)
 		{
-		case XY_EBENE: {kamera.breiteXY=breite;break;}
-		case XZ_EBENE: {kamera.breiteXZ=breite;break;}
-		case YZ_EBENE: {kamera.breiteYZ=breite;break;}
+		case XY_EBENE -> kamera.breiteXY=breite;
+		case XZ_EBENE -> kamera.breiteXZ=breite;
+		case YZ_EBENE -> kamera.breiteYZ=breite;
 		}
 	}
 
 	public double getWinkel()
 	{
-		switch(typ)
+		 return switch(typ)
 		{
-		case XY_EBENE: return kamera.winkelXY;
-		case XZ_EBENE: return kamera.winkelXZ;
-		case YZ_EBENE: return kamera.winkelYZ;
-		default: return 0;
-		}
+		case XY_EBENE -> kamera.winkelXY;
+		case XZ_EBENE -> kamera.winkelXZ;
+		case YZ_EBENE -> kamera.winkelYZ;
+		default -> 0;
+		};
 	}
 
 	public void setWinkel(double winkel)
 	{
 		switch(typ)
 		{
-		case XY_EBENE: {kamera.winkelXY=winkel;break;}
-		case XZ_EBENE: {kamera.winkelXZ=winkel;break;}
-		case YZ_EBENE: {kamera.winkelYZ=winkel;break;}
+		case XY_EBENE -> kamera.winkelXY=winkel;
+		case XZ_EBENE -> kamera.winkelXZ=winkel;
+		case YZ_EBENE -> kamera.winkelYZ=winkel;
 		}
 	}
 
 	
 	public Point3d getPos()
 	{
-		switch(typ)
+		return switch(typ)
 		{
-		case XY_EBENE: return kamera.posXY; 
-		case XZ_EBENE: return kamera.posXZ;
-		case YZ_EBENE: return kamera.posYZ;
-		default: return null;
-		}
+		case XY_EBENE -> kamera.posXY; 
+		case XZ_EBENE -> kamera.posXZ;
+		case YZ_EBENE -> kamera.posYZ;
+		default -> null;
+		};
 	}
 
 	/**
@@ -81,13 +81,13 @@ public class OpenGLFrame extends JInternalFrame{
 	 *  Die Koordinaten bleiben allerdings an ihrer Stelle. Zur Achsenumrechnung gibt es getVerschiebungsMatrix(). 
 	 */
 	public Vector2d getVerschiebungsModifikator() {
-		switch(typ)
+		return switch(typ)
 		{
-		case XY_EBENE: return new Vector2d(1,-1);
-		case XZ_EBENE: return new Vector2d(1,-1);
-		case YZ_EBENE: return new Vector2d(1,1);
-		default: return null;
-		}
+		case XY_EBENE -> new Vector2d(1,-1);
+		case XZ_EBENE -> new Vector2d(1,-1);
+		case YZ_EBENE -> new Vector2d(1,1);
+		default -> null;
+		};
 	}	
 	
 ////	/** NOCH NICHT GETESTET 
@@ -109,10 +109,10 @@ public class OpenGLFrame extends JInternalFrame{
 ////		Matrix3d verschiebungsMatrix = new Matrix3d();
 ////		switch(typ)
 ////		{
-////		case XY_EBENE: verschiebungsMatrix.setIdentity();
-////		case XZ_EBENE: verschiebungsMatrix.setIdentity();
-////		case YZ_EBENE: verschiebungsMatrix.setIdentity();
-////		case PERSPEKTIVE: verschiebungsMatrix.setIdentity(); 
+////		case XY_EBENE -> verschiebungsMatrix.setIdentity();
+////		case XZ_EBENE -> verschiebungsMatrix.setIdentity();
+////		case YZ_EBENE -> verschiebungsMatrix.setIdentity();
+////		case PERSPEKTIVE -> verschiebungsMatrix.setIdentity(); 
 ////		}
 ////		return verschiebungsMatrix;
 ////	}
@@ -129,14 +129,14 @@ public class OpenGLFrame extends JInternalFrame{
 	 */
 	public Vector3d bildschirmToSzenenAchsen(Vector2d bildschirmAchsen)
 	{
-		switch(typ)
+		return switch(typ)
 		{
-		case PERSPEKTIVE:
-		case XY_EBENE: return new Vector3d(bildschirmAchsen.x,-bildschirmAchsen.y,0);
-		case XZ_EBENE: return new Vector3d(bildschirmAchsen.x,0,bildschirmAchsen.y);
-		case YZ_EBENE: return new Vector3d(0,-bildschirmAchsen.y,-bildschirmAchsen.x);
-		}
-		return null;
+		case PERSPEKTIVE,
+		XY_EBENE ->			 new Vector3d(bildschirmAchsen.x,-bildschirmAchsen.y,0);
+		case XZ_EBENE -> new Vector3d(bildschirmAchsen.x,0,bildschirmAchsen.y);
+		case YZ_EBENE -> new Vector3d(0,-bildschirmAchsen.y,-bildschirmAchsen.x);
+		default				-> null;
+		};
 	}
 	
 	/**
@@ -146,14 +146,14 @@ public class OpenGLFrame extends JInternalFrame{
 	 */
 	public Vector3d bildschirmToSkalierung(Vector2d bildschirmAchsen)
 	{
-		switch(typ)
+		return switch(typ)
 		{
-		case PERSPEKTIVE:
-		case XY_EBENE: return new Vector3d(bildschirmAchsen.x,-bildschirmAchsen.y,0);
-		case XZ_EBENE: return new Vector3d(bildschirmAchsen.x,0,-bildschirmAchsen.y);
-		case YZ_EBENE: return new Vector3d(0,-bildschirmAchsen.y,bildschirmAchsen.x);
-		}
-		return null;
+		case PERSPEKTIVE,
+		XY_EBENE -> 		 new Vector3d(bildschirmAchsen.x,-bildschirmAchsen.y,0);
+		case XZ_EBENE -> new Vector3d(bildschirmAchsen.x,0,-bildschirmAchsen.y);
+		case YZ_EBENE -> new Vector3d(0,-bildschirmAchsen.y,bildschirmAchsen.x);
+		default				-> null;
+		};
 	}
 
 	public OpenGLFrame(int typ) {

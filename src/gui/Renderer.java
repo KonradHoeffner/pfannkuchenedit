@@ -307,40 +307,24 @@ public class Renderer implements GLEventListener
 	{
 		int kategorie = (name / 1000) * 1000;
 		switch (kategorie) {
-		case PICKING_NURBSFLAECHEN_OFFSET:
-		{
-			Szene.setAusgewaehltesObjekt(Szene.nurbsFlaechen.get(name - kategorie));
-			break;
-		}
-		case PICKING_NURBSKURVEN_OFFSET:
-		{
-			Szene.setAusgewaehltesObjekt(Szene.nurbsKurven.get(name - kategorie));
-			break;
-		}
-		case PICKING_NURBS_KONTROLLPUNKTE_OFFSET:
+		case PICKING_NURBSFLAECHEN_OFFSET -> Szene.setAusgewaehltesObjekt(Szene.nurbsFlaechen.get(name - kategorie));
+		case PICKING_NURBSKURVEN_OFFSET -> Szene.setAusgewaehltesObjekt(Szene.nurbsKurven.get(name - kategorie));
+		case PICKING_NURBS_KONTROLLPUNKTE_OFFSET ->
 		{
 			NURBSFlaeche nurbsFlaeche = Szene.ausgewaehlteNURBSFlaeche.nurbsFlaeche;
 			int nummer = name - kategorie;
 			int h = nurbsFlaeche.kontrollnetz.length;
 			// System.out.println(nummer);
 			// System.out.println(h);
-			Szene.setAusgewaehltesObjekt(nurbsFlaeche.kontrollnetz[nummer / h][nummer
-			                                                                   % h]);
-			break;
+			Szene.setAusgewaehltesObjekt(nurbsFlaeche.kontrollnetz[nummer / h][nummer % h]);
 		}
-		case PICKING_KURVE_KONTROLLPUNKTE_OFFSET:
+		case PICKING_KURVE_KONTROLLPUNKTE_OFFSET ->
 		{
 			NURBSKurve nurbsKurve = Szene.ausgewaehlteNURBSKurve.nurbsKurve;
 			int nummer = name - kategorie;
 			Szene.setAusgewaehltesObjekt(nurbsKurve.kontrollpolygon[nummer]);
-			break;
 		}
-
-		case PICKING_LICHTQUELLEN_OFFSET:
-		{
-			Szene.setAusgewaehltesObjekt(Szene.lichtquellen.get(name - kategorie));
-			break;
-		}
+		case PICKING_LICHTQUELLEN_OFFSET -> Szene.setAusgewaehltesObjekt(Szene.lichtquellen.get(name - kategorie));
 		}
 	}
 
@@ -470,35 +454,31 @@ public class Renderer implements GLEventListener
 		gl.glMatrixMode(GL2.GL_MODELVIEW);
 
 		switch (typ) {
-		case OpenGLFrame.XY_EBENE:
+		case OpenGLFrame.XY_EBENE ->
 		{
 
 			glu.gluLookAt(Szene.kamera.posXY.x, Szene.kamera.posXY.y, 10,
 					Szene.kamera.posXY.x, Szene.kamera.posXY.y, 0, 0, 1, 0);
 			gl.glRotated(Szene.kamera.winkelXY * 180 / Math.PI, 0, 0, 1);
-			break;
 		}
-		case OpenGLFrame.XZ_EBENE:
+		case OpenGLFrame.XZ_EBENE ->
 		{
 			glu.gluLookAt(Szene.kamera.posXZ.x, 10, Szene.kamera.posXZ.z,
 					Szene.kamera.posXZ.x, 0, Szene.kamera.posXZ.z, 0, 0, -1);
 			gl.glRotated(Szene.kamera.winkelXZ * 180 / Math.PI, 0, 1, 0);
-			break;
 		}
-		case OpenGLFrame.YZ_EBENE:
+		case OpenGLFrame.YZ_EBENE ->
 		{
 			glu.gluLookAt(10, Szene.kamera.posYZ.y, Szene.kamera.posYZ.z, 0,
 					Szene.kamera.posYZ.y, Szene.kamera.posYZ.z, 0, 1, 0);
 			gl.glRotated(Szene.kamera.winkelYZ * 180 / Math.PI, 1, 0, 0);
-			break;
 		}
-		case OpenGLFrame.PERSPEKTIVE:
+		case OpenGLFrame.PERSPEKTIVE ->
 		{
 			glu.gluLookAt(Szene.kamera.position.x, Szene.kamera.position.y,
 					Szene.kamera.position.z, Szene.kamera.ziel.x, Szene.kamera.ziel.y,
 					Szene.kamera.ziel.z, Szene.kamera.oben.x, Szene.kamera.oben.y,
 					Szene.kamera.oben.z);
-			break;
 		}
 		}
 
@@ -646,7 +626,7 @@ public class Renderer implements GLEventListener
 
 		switch (typ) {
 		// Gitter in XY Ebene
-		case 0:
+		case 0 ->
 		{
 			for (int i = -20; i <= 20; i++) {
 				gl.glVertex3f((float) -20, i, 0f);
@@ -656,14 +636,11 @@ public class Renderer implements GLEventListener
 				gl.glVertex3f((float) i, -20f, 0);
 				gl.glVertex3f((float) i, 20f, 0);
 			}
-			break;
 		}
-
-		case 3:
+		case 3,
 			// gl.glColor3f(.8f, .8f, 1f );
-		case 1:
+		1 ->
 		{
-
 			// Gitter in XZ Ebene
 			for (int i = -20; i <= 20; i++) {
 				if (i != 0) {
@@ -678,13 +655,9 @@ public class Renderer implements GLEventListener
 					gl.glVertex3f((float) 20, 0f, i);
 				}
 			}
-			break;
 		}
-
-		case 2:
-
+		case 2 ->
 		{
-
 			// Gitter in YZ Ebene
 			for (int i = -20; i <= 20; i++) {
 				gl.glVertex3f((float) 0, i, -20f);
@@ -732,38 +705,13 @@ public class Renderer implements GLEventListener
 		}
 
 		switch (typ) {
-		case 0:
-		{
-			gl.glOrtho(-Szene.kamera.breiteXY / 2, Szene.kamera.breiteXY / 2,
-					-Szene.kamera.breiteXY / 2 * height / width, Szene.kamera.breiteXY
-					/ 2 * height / width, -1000, 1000);
-			break;
-		}
-		case 1:
-		{
-			gl.glOrtho(-Szene.kamera.breiteXZ / 2, Szene.kamera.breiteXZ / 2,
-					-Szene.kamera.breiteXZ / 2 * height / width, Szene.kamera.breiteXZ
-					/ 2 * height / width, -1000, 1000);
-			break;
-		}
-		case 2:
-		{
-			gl.glOrtho(-Szene.kamera.breiteYZ / 2, Szene.kamera.breiteYZ / 2,
-					-Szene.kamera.breiteYZ / 2 * height / width, Szene.kamera.breiteYZ
-					/ 2 * height / width, -1000, 1000);
-			break;
-		}
-
-		case 3:
-		{
-			glu.gluPerspective(Szene.kamera.fovy, (double) (width) / height,
-					Szene.kamera.clippingNear, Szene.kamera.clippingFar);
-			break;
-		}
+		case 0 -> gl.glOrtho(-Szene.kamera.breiteXY / 2, Szene.kamera.breiteXY / 2, -Szene.kamera.breiteXY / 2 * height / width, Szene.kamera.breiteXY / 2 * height / width, -1000, 1000);
+		case 1 -> gl.glOrtho(-Szene.kamera.breiteXZ / 2, Szene.kamera.breiteXZ / 2, -Szene.kamera.breiteXZ / 2 * height / width, Szene.kamera.breiteXZ / 2 * height / width, -1000, 1000);
+		case 2 -> gl.glOrtho(-Szene.kamera.breiteYZ / 2, Szene.kamera.breiteYZ / 2, -Szene.kamera.breiteYZ / 2 * height / width, Szene.kamera.breiteYZ / 2 * height / width, -1000, 1000);
+		case 3 -> glu.gluPerspective(Szene.kamera.fovy, (double) (width) / height, Szene.kamera.clippingNear, Szene.kamera.clippingFar);
 		}
 		gl.glViewport(0, 0, width, height);
 		gl.glMatrixMode(GL2.GL_MODELVIEW);
-
 	}
 
 	public void reshape(GLAutoDrawable drawable, int x, int y, int width,

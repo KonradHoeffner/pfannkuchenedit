@@ -7,7 +7,6 @@ import javax.vecmath.*;
 import nurbs.*;
 import szene.*;
 
-
 public class MainWindow implements ActionListener{
 	
 	// Fenster und Container
@@ -89,10 +88,10 @@ public class MainWindow implements ActionListener{
 		buttonNURBSKurve.setBackground(buttonLichtquelle.getBackground());
 		switch(modus)
 		{
-		case Szene.KAMERA_MODUS:  {buttonKameraModus.setBackground(new Color(0.4f,0.4f,0.7f));break;}
-		case Szene.OBJEKT_MODUS:  {buttonObjektModus.setBackground(new Color(0.4f,0.4f,0.7f));break;}
-		case Szene.NURBS_MODUS:  {buttonNURBSModus.setBackground(new Color(0.4f,0.4f,0.7f));break;}
-		case Szene.NURBSKURVE_ERZEUGEN_MODUS : {buttonNURBSKurve.setBackground(new Color(0.4f,0.4f,0.7f));break;}
+		case Szene.KAMERA_MODUS -> buttonKameraModus.setBackground(new Color(0.4f,0.4f,0.7f));
+		case Szene.OBJEKT_MODUS -> buttonObjektModus.setBackground(new Color(0.4f,0.4f,0.7f));
+		case Szene.NURBS_MODUS -> buttonNURBSModus.setBackground(new Color(0.4f,0.4f,0.7f));
+		case Szene.NURBSKURVE_ERZEUGEN_MODUS  -> buttonNURBSKurve.setBackground(new Color(0.4f,0.4f,0.7f));
 		}
 	}
 	
@@ -105,10 +104,10 @@ public class MainWindow implements ActionListener{
 		buttonSkalieren.setBackground(buttonLichtquelle.getBackground());
 		switch(modus)
 		{
-		case Szene.AUSWAHL_FUNKTION:  {buttonAuswahl.setBackground(new Color(0.4f,0.4f,0.7f));break;}
-		case Szene.VERSCHIEBEN_FUNKTION:  {buttonVerschieben.setBackground(new Color(0.4f,0.4f,0.7f));break;}
-		case Szene.SKALIEREN_FUNKTION:  {buttonSkalieren.setBackground(new Color(0.4f,0.4f,0.7f));break;}
-		case Szene.DREHEN_FUNKTION:  {buttonDrehen.setBackground(new Color(0.4f,0.4f,0.7f));break;}
+		case Szene.AUSWAHL_FUNKTION -> buttonAuswahl.setBackground(new Color(0.4f,0.4f,0.7f));
+		case Szene.VERSCHIEBEN_FUNKTION -> buttonVerschieben.setBackground(new Color(0.4f,0.4f,0.7f));
+		case Szene.SKALIEREN_FUNKTION -> buttonSkalieren.setBackground(new Color(0.4f,0.4f,0.7f));
+		case Szene.DREHEN_FUNKTION -> buttonDrehen.setBackground(new Color(0.4f,0.4f,0.7f));
 		
 		}
 	}
@@ -696,30 +695,30 @@ public class MainWindow implements ActionListener{
 	private void loeschen() {
 		switch(Szene.ausgewaehlterTyp)
 		{
-		case Szene.NURBSFLAECHE_AUSGEWAEHLT:
+		case Szene.NURBSFLAECHE_AUSGEWAEHLT ->
 		{
 			if(Szene.ausgewaehlteNURBSFlaeche!=null)
 			{
 				Szene.nurbsFlaechen.remove(Szene.ausgewaehlteNURBSFlaeche);
 				Szene.abwaehlen();
-				break;
 			}
 		}
-		case Szene.NURBSKURVE_AUSGEWAEHLT:
+		case Szene.NURBSKURVE_AUSGEWAEHLT -> 
 		{
 			if(Szene.ausgewaehlteNURBSKurve!=null)
 			{
 				Szene.nurbsKurven.remove(Szene.ausgewaehlteNURBSKurve);
 				Szene.abwaehlen();
-				break;
 			}
 		}
-		case Szene.LICHTQUELLE_AUSGEWAEHLT:
-		}
-		if(Szene.ausgewaehlteLichtquelle!=null)
+		case Szene.LICHTQUELLE_AUSGEWAEHLT ->
 		{
-			Szene.lichtquellen.remove(Szene.ausgewaehlteLichtquelle);
-			Szene.abwaehlen();		
+			if(Szene.ausgewaehlteLichtquelle!=null)
+			{
+				Szene.lichtquellen.remove(Szene.ausgewaehlteLichtquelle);
+				Szene.abwaehlen();		
+			}
+		}
 		}
 	}
 	
